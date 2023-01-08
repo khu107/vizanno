@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Input } from 'antd';
-
+import LogoImage from '../../../assets/image/logimage.jpg';
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
@@ -15,6 +15,24 @@ Wrapper.Left = styled.div`
   flex: 1;
   height: 100%;
   background-color: #3067cb;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 1150px) {
+    display: none;
+  }
+`;
+
+Wrapper.LoginGIF = styled.div`
+  background-image: url(${LogoImage});
+  width: 70%;
+  height: 70%;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
 `;
 Wrapper.Right = styled.div`
   flex: 1;
@@ -27,6 +45,9 @@ Wrapper.RightContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media (max-width: 1150px) {
+    width: 90%;
+  }
 `;
 Wrapper.Icon = styled.img`
   width: 80px;
