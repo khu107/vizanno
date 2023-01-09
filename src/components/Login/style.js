@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Input } from 'antd';
-import LogoImage from '../../../assets/image/logimage.jpg';
+import LogoImage from '../../assets/image/logimage.jpg';
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;

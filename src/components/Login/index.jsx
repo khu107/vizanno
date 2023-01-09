@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Wrapper } from './style';
-import logo from '../../../assets/icon/logo.jpg';
-import ShapeSvg from '../ShapeSVG';
+import logo from '../../assets/icon/logo.jpg';
+import ShapeSvg from '../../components/Generic/ShapeSVG';
 
 import { notification } from 'antd';
 export default function Login() {
