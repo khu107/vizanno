@@ -36,6 +36,7 @@ Wrapper.LoginGIF = styled.div`
 `;
 Wrapper.Right = styled.div`
   flex: 1;
+  background-color: #fff;
 `;
 Wrapper.RightContainer = styled.div`
   width: 65%;

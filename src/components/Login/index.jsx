@@ -3,14 +3,16 @@ import { Wrapper } from './style';
 import logo from '../../assets/icon/logo.jpg';
 import ShapeSvg from '../../components/Generic/ShapeSVG';
 
+import { LoadingOutlined } from '@ant-design/icons';
 import { notification } from 'antd';
 export default function Login() {
   const [userInfo, setUserInfo] = useState({
     fullName: '',
     password: '',
   });
+  const [loading, setLoading] = useState(false);
 
-  const customNotifaction = (type, message, description, placement) => {
+  const customNotifaction = ({ type, message, description, placement }) => {
     notification[type]({
       message,
       description,
@@ -19,15 +21,28 @@ export default function Login() {
   };
 
   const handlerInput = (e) => {
+    console.log(e.target.name);
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
   const onAuht = () => {
-    customNotifaction({
-      type: 'error',
-      message: 'Please fill all fields',
-      placement: 'topRight',
-    });
+    if (!userInfo.fullName || !userInfo.password) {
+      customNotifaction({
+        type: 'error',
+        message: 'Please fill all fields',
+        placement: 'topRight',
+      });
+      return;
+    }
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      customNotifaction({
+        type: 'success',
+        message: "You've been successfully loged in!",
+        placement: 'topRight',
+      });
+    }, 3000);
   };
 
   return (
@@ -57,7 +72,7 @@ export default function Login() {
               again!Hello again!Hello again!Hello again! Hello again!
             </Wrapper.Desc>
             <Wrapper.Input
-              name="fullname"
+              name="fullName"
               onChange={handlerInput}
               placeholder="name"
             />
@@ -66,7 +81,9 @@ export default function Login() {
               placeholder="password"
               onChange={handlerInput}
             />
-            <Wrapper.Button onClick={onAuht}>Login</Wrapper.Button>
+            <Wrapper.Button onClick={onAuht}>
+              {loading ? <LoadingOutlined /> : 'Login'}
+            </Wrapper.Button>
           </Wrapper.RightContainer>
         </Wrapper.Right>
       </Wrapper.Container>
