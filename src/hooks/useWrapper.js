@@ -1,6 +1,6 @@
 import React from 'react';
 
-const useWrapper = () => {
+const useWrapper = ({}) => {
   return <div>useWrapper</div>;
 };
 
