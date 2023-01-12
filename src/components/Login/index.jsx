@@ -5,6 +5,7 @@ import ShapeSvg from '../../components/Generic/ShapeSVG';
 
 import { LoadingOutlined } from '@ant-design/icons';
 import { notification } from 'antd';
+import axios from 'axios';
 export default function Login() {
   const [userInfo, setUserInfo] = useState({
     fullName: '',
@@ -21,7 +22,6 @@ export default function Login() {
   };
 
   const handlerInput = (e) => {
-    console.log(e.target.name);
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
@@ -34,15 +34,37 @@ export default function Login() {
       });
       return;
     }
+
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      customNotifaction({
-        type: 'success',
-        message: "You've been successfully loged in!",
-        placement: 'topRight',
+    axios({
+      method: 'POST',
+      url: `${process.env.REACT_APP_BASE_URL}/user/login`,
+      data: userInfo,
+    })
+      .then((res) => {
+        const { token, user } = res.data.data;
+        localStorage.setItem('token', token);
+        localStorage.setItem('fullName', user.fullName);
+        localStorage.setItem('isAuthed', true);
+        setLoading(false);
+      })
+      .catch((error) => {
+        if (error.request.status >= 500)
+          return customNotifaction({
+            type: 'error',
+            message: 'ERROR',
+            description: 'Server is not working!',
+            placement: 'topRight',
+          });
+
+        customNotifaction({
+          type: 'error',
+          message: 'ERROR',
+          description: error.response.data.extraMessage,
+          placement: 'topRight',
+        });
+        setLoading(false);
       });
-    }, 3000);
   };
 
   return (
