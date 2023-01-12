@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { Wrapper } from './style';
-import logo from '../../assets/icon/logo.jpg';
-import ShapeSvg from '../../components/Generic/ShapeSVG';
-
 import { LoadingOutlined } from '@ant-design/icons';
 import { notification } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { useSignIn } from 'react-auth-kit';
 import axios from 'axios';
+import ShapeSvg from '../../components/Generic/ShapeSVG';
+import logo from '../../assets/icon/logo.jpg';
+
 export default function Login() {
+  const sigIn = useSignIn();
   const [userInfo, setUserInfo] = useState({
     fullName: '',
     password: '',
   });
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const customNotifaction = ({ type, message, description, placement }) => {
@@ -23,6 +27,9 @@ export default function Login() {
 
   const handlerInput = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+  };
+  const hadleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.type === 'click') onAuht();
   };
 
   const onAuht = () => {
@@ -43,10 +50,14 @@ export default function Login() {
     })
       .then((res) => {
         const { token, user } = res.data.data;
-        localStorage.setItem('token', token);
-        localStorage.setItem('fullName', user.fullName);
-        localStorage.setItem('isAuthed', true);
+        sigIn({
+          token,
+          expiresIn: 3600,
+          tokenType: 'Bearer',
+          authState: { fullName: user.fullName },
+        });
         setLoading(false);
+        navigate('/');
       })
       .catch((error) => {
         if (error.request.status >= 500)
@@ -102,8 +113,9 @@ export default function Login() {
               name="password"
               placeholder="password"
               onChange={handlerInput}
+              onKeyDown={hadleKeyDown}
             />
-            <Wrapper.Button onClick={onAuht}>
+            <Wrapper.Button onClick={hadleKeyDown}>
               {loading ? <LoadingOutlined /> : 'Login'}
             </Wrapper.Button>
           </Wrapper.RightContainer>
