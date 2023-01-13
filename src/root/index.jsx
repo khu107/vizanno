@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import { RequireAuth } from 'react-auth-kit';
 import Login from '../components/Login';
 import Navbar from '../components/Navbar';

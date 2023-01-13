@@ -5,16 +5,22 @@ import { Dropdown, Space } from 'antd';
 import { SettingTwoTone, LogoutOutlined } from '@ant-design/icons';
 import NavbarLogo from '../../assets/icon/navbarLogo.png';
 import { warning } from '../Generic/Notification/ByModal';
+import ProfileModal from '../Login/ProfileModal';
 
 function Navbar() {
   const signOut = useSignOut();
   const [open, setOpen] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
 
   const items = [
     {
       key: '1',
       label: (
-        <Space>
+        <Space
+          onClick={() => {
+            setShowProfileModal(true);
+          }}
+        >
           <SettingTwoTone twoToneColor="#56ac2b" />
           Setting
         </Space>
@@ -48,6 +54,10 @@ function Navbar() {
 
   return (
     <Wrapper>
+      <ProfileModal
+        open={showProfileModal}
+        onCancel={() => setShowProfileModal(false)}
+      />
       <Wrapper.Container>
         <Wrapper.Logo loading="lazy" src={NavbarLogo} />
 

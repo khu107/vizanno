@@ -1,4 +1,4 @@
-import { Button, Modal, Space } from 'antd';
+import { Modal } from 'antd';
 
 const { confirm } = Modal;
 
