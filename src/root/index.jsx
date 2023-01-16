@@ -17,6 +17,7 @@ export default function Root() {
         }
       >
         <Route path="/" element={<Home />} />
+        <Route path="/Flow/:idFlow" element={<Home />} />
       </Route>
       <Route path="/login" element={<Login />} />
     </Routes>

@@ -1,11 +1,17 @@
 import React from 'react';
 import { Wrapper } from './style';
+import { Link, useParams } from 'react-router-dom';
 
-function Card() {
+function Card({ title, img }) {
+  const { idFlow } = useParams();
+  console.log(idFlow);
   return (
-    <Wrapper>
-      <Wrapper.Title>Title</Wrapper.Title>
-    </Wrapper>
+    <Link>
+      <Wrapper>
+        <Wrapper.Title> {title}</Wrapper.Title>
+        <Wrapper.Img src={img} />
+      </Wrapper>
+    </Link>
   );
 }
 

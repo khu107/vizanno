@@ -11,3 +11,11 @@ Wrapper.Title = styled.div`
   margin: 40px;
   text-align: center;
 `;
+
+Wrapper.CardContainer = styled.div`
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  grid-gap: 100px;
+  justify-content: center;
+`;

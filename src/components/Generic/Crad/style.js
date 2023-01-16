@@ -21,3 +21,8 @@ Wrapper.Title = styled.div`
   font-size: 26px;
   color: rgb(0, 0, 0);
 `;
+
+Wrapper.Img = styled.img`
+  width: 133px;
+  height: 192px;
+`;
