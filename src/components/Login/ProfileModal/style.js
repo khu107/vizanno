@@ -31,6 +31,17 @@ Wrapper.Input = styled(Input)`
   color: rgb(89, 90, 98);
   margin-bottom: 30px;
 `;
+Wrapper.InputPassword = styled(Input.Password)`
+  width: 90%;
+  height: 40px;
+  background: rgb(250, 251, 254);
+  outline: none;
+  border: 1px solid rgb(240, 238, 247);
+  border-radius: 12px;
+  padding-left: 15px;
+  color: rgb(89, 90, 98);
+  margin-bottom: 30px;
+`;
 Wrapper.Name = styled.div`
   width: 90%;
 `;

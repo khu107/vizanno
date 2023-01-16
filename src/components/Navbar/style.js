@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div``;
+
+Wrapper.NavbarWrapper = styled.div`
   width: 100%;
   height: 70px;
   background-color: #fff;
