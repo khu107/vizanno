@@ -19,7 +19,7 @@ function Home() {
           onClick={() => {
             navigate('/flow/1');
           }}
-          title={'Flow 1'}
+          title={'Flow № 1'}
           img={Patok1}
         />
 
@@ -27,7 +27,7 @@ function Home() {
           onClick={() => {
             navigate('/flow/2');
           }}
-          title={'Flow 2'}
+          title={'Flow № 2'}
           img={Patok2}
         />
       </Wrapper.CardContainer>
@@ -36,14 +36,14 @@ function Home() {
           onClick={() => {
             navigate('/flow/3');
           }}
-          title={'Flow 3'}
+          title={'Flow № 3'}
           img={Patok3}
         />
         <Card
           onClick={() => {
             navigate('/flow/4');
           }}
-          title={'Flow 4'}
+          title={'Flow № 4'}
           img={Patok4}
         />
       </Wrapper.CardContainer>
@@ -52,7 +52,7 @@ function Home() {
           onClick={() => {
             navigate('/flow/5');
           }}
-          title={'Flow 5'}
+          title={'Flow № 5'}
           img={Patok5}
         />
       </Wrapper.CardContainer>
