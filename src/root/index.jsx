@@ -4,6 +4,7 @@ import { RequireAuth } from 'react-auth-kit';
 import Login from '../components/Login';
 import Navbar from '../components/Navbar';
 import Home from '../components/Home';
+import Flow from '../components/Flow';
 
 export default function Root() {
   return (
@@ -17,7 +18,7 @@ export default function Root() {
         }
       >
         <Route path="/" element={<Home />} />
-        <Route path="/Flow/:idFlow" element={<Home />} />
+        <Route path="/Flow/:idFlow" element={<Flow />} />
       </Route>
       <Route path="/login" element={<Login />} />
     </Routes>
