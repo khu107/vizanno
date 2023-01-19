@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div``;
 
@@ -11,7 +11,7 @@ Wrapper.NavbarWrapper = styled.div`
 Wrapper.Container = styled.div`
   width: 80%;
   height: 100%;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,4 +30,13 @@ Wrapper.Avatar = styled.div`
   color: #fff;
   border-radius: 50%;
   cursor: pointer;
+`;
+Wrapper.MenuItem = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+Wrapper.MenuItemText = styled.div`
+  margin-left: 8px;
+  color: ${({ danger }) => (danger ? "red" : "#000")};
 `;

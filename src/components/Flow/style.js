@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div``;
 
@@ -14,8 +14,8 @@ Wrapper.Title = styled.div`
 
 Wrapper.CardContainer = styled.div`
   width: 60%;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
-  grid-gap: 100px;
+  grid-gap: 150px;
   justify-content: center;
 `;

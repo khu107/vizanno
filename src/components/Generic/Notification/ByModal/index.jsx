@@ -1,15 +1,23 @@
-import { Modal } from 'antd';
+import { Modal } from "antd";
 
 const { confirm } = Modal;
 
-const warning = ({ title, content, onOk, okText, okButtonProps, setOpen }) => {
+const warning = ({
+  title,
+  content,
+  onOk,
+  okText,
+  okButtonProps,
+  showConfirm,
+}) => {
   confirm({
     title,
     content,
     onOk,
     okButtonProps,
     okText,
-    open: setOpen,
+    open: showConfirm,
   });
 };
+
 export { warning };

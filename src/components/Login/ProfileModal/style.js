@@ -1,12 +1,14 @@
-import styled from 'styled-components';
-import { Input } from 'antd';
+import { Input } from "antd";
+import styled from "styled-components";
+
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 `;
 Wrapper.Avatar = styled.div`
   width: 80px;
@@ -16,32 +18,21 @@ Wrapper.Avatar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #fff;
   text-transform: capitalize;
 `;
-
-Wrapper.Input = styled(Input)`
-  width: 90%;
-  height: 40px;
-  background: rgb(250, 251, 254);
-  outline: none;
-  border: 1px solid rgb(240, 238, 247);
-  border-radius: 12px;
-  padding-left: 15px;
-  color: rgb(89, 90, 98);
-  margin-bottom: 30px;
+Wrapper.Form = styled.div`
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
 `;
-Wrapper.InputPassword = styled(Input.Password)`
-  width: 90%;
-  height: 40px;
-  background: rgb(250, 251, 254);
-  outline: none;
-  border: 1px solid rgb(240, 238, 247);
-  border-radius: 12px;
-  padding-left: 15px;
-  color: rgb(89, 90, 98);
-  margin-bottom: 30px;
+Wrapper.InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  grid-gap: 20px;
 `;
-Wrapper.Name = styled.div`
-  width: 90%;
-`;
+Wrapper.Input = styled(Input)``;
+Wrapper.InputPassword = styled(Input.Password)``;
+Wrapper.InputText = styled.div``;

@@ -1,57 +1,53 @@
-import React, { useState } from 'react';
-import { Wrapper } from './style';
-import { useSignOut } from 'react-auth-kit';
-import { Dropdown, Space } from 'antd';
-import { SettingTwoTone, LogoutOutlined } from '@ant-design/icons';
-import { useNavigate, Outlet } from 'react-router-dom';
-import NavbarLogo from '../../assets/icon/navbarLogo.png';
-import { warning } from '../Generic/Notification/ByModal';
-import ProfileModal from '../Login/ProfileModal';
+import React, { useState } from "react";
+import { Wrapper } from "./style";
+import logo from "../../assets/icons/navbarLogo.png";
+import { Dropdown } from "antd";
+import { useSignOut } from "react-auth-kit";
+import { warning } from "../Generic/Notification/ByModal";
+import ProfileModal from "../Login/ProfileModal";
+import { useNavigate, Outlet } from "react-router-dom";
+import { SettingOutlined, LogoutOutlined } from "@ant-design/icons";
 
-function Navbar() {
+const Navbar = () => {
   const signOut = useSignOut();
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   const items = [
     {
-      key: '1',
       label: (
-        <Space
-          onClick={() => {
-            setShowProfileModal(true);
-          }}
-        >
-          <SettingTwoTone twoToneColor="#56ac2b" />
-          Setting
-        </Space>
+        <Wrapper.MenuItem onClick={() => setShowProfileModal(true)}>
+          <SettingOutlined />
+          <Wrapper.MenuItemText>Settings</Wrapper.MenuItemText>
+        </Wrapper.MenuItem>
       ),
+      key: "0",
     },
     {
-      key: '2',
       label: (
-        <Space
+        <Wrapper.MenuItem
           onClick={() => {
-            setOpen(true);
+            setShowConfirm(true);
             warning({
-              title: 'Are you sure!!!',
-              content: 'This action can be ignore after confirming this!',
+              title: "Are you sure ?!",
+              content: "This action can be ignore after confirming this!",
               onOk: () => {
                 signOut();
-                navigate('/login');
-                setOpen(false);
+                setShowConfirm(false);
+                navigate("/login");
               },
               okButtonProps: { danger: true },
-              okText: 'LogOut',
-              open: open,
+              okText: "Logout",
+              open: showConfirm,
             });
           }}
         >
-          <LogoutOutlined />
-          LogOut
-        </Space>
+          <LogoutOutlined style={{ color: "red" }} />
+          <Wrapper.MenuItemText danger>Logout</Wrapper.MenuItemText>
+        </Wrapper.MenuItem>
       ),
+      key: "1",
     },
   ];
 
@@ -63,22 +59,20 @@ function Navbar() {
           onCancel={() => setShowProfileModal(false)}
         />
         <Wrapper.Container>
-          <Wrapper.Logo loading="lazy" src={NavbarLogo} />
-
+          <Wrapper.Logo loading="lazy" src={logo} />
           <Dropdown
             menu={{
               items,
             }}
-            placement="bottom"
-            arrow
+            trigger={["click"]}
           >
-            <Wrapper.Avatar>H</Wrapper.Avatar>
+            <Wrapper.Avatar>A</Wrapper.Avatar>
           </Dropdown>
         </Wrapper.Container>
-        <Outlet />
       </Wrapper.NavbarWrapper>
+      <Outlet />
     </Wrapper>
   );
-}
+};
 
 export default Navbar;

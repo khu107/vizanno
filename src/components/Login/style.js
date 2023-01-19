@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { Input } from 'antd';
-import LogoImage from '../../assets/image/logimage.jpg';
+import styled from "styled-components";
+import { Input } from "antd";
+import tailorMan from "../../assets/images/tailor.jpg";
+
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
 `;
-
 Wrapper.Container = styled.div`
   display: flex;
   width: 100%;
@@ -23,9 +23,8 @@ Wrapper.Left = styled.div`
     display: none;
   }
 `;
-
-Wrapper.LoginGIF = styled.div`
-  background-image: url(${LogoImage});
+Wrapper.LoginGIf = styled.div`
+  background-image: url(${tailorMan});
   width: 70%;
   height: 70%;
   z-index: 2;
@@ -38,23 +37,24 @@ Wrapper.Right = styled.div`
   flex: 1;
   background-color: #fff;
 `;
+
 Wrapper.RightContainer = styled.div`
   width: 65%;
   height: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  @media (max-width: 1150px) {
-    width: 90%;
+  @media (max-width: 600px) {
+    width: 100%;
   }
 `;
 Wrapper.Icon = styled.img`
   width: 80px;
   height: 80px;
   padding: 5px;
-  border: 1p solid rgb(245, 245, 245);
+  border: 1px solid rgb(245, 245, 245);
   border-radius: 50%;
 `;
 Wrapper.Title = styled.div`
@@ -96,10 +96,33 @@ Wrapper.Button = styled.div`
   width: 80%;
   height: 50px;
   border-radius: 12px;
-  background-color: rgb(48, 104, 203);
+  background-color: #3068cb;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #fff;
   cursor: pointer;
+
+  ${({ warningAnimation }) =>
+    warningAnimation &&
+    `
+    animation: rotate 0.7s ease-in-out both;
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    25% {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50% {
+      transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+    75% {
+      transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  `}
 `;
