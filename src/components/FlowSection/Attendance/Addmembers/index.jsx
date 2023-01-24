@@ -17,7 +17,7 @@ function Addmembers() {
   return (
     <div>
       <Button type="primary" onClick={showModal}>
-        +Add members
+        +ADD members
       </Button>
       <Modal
         title="Add members"
