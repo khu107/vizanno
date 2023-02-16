@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Input } from "antd";
-import tailorMan from "../../assets/images/tailor.jpg";
+import styled from 'styled-components';
+import { Input } from 'antd';
+import tailorMan from '../../assets/images/tailor.jpg';
 
 export const Wrapper = styled.div`
   width: 100%;

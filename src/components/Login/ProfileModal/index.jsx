@@ -1,11 +1,8 @@
-import React from "react";
-import { Modal } from "antd";
-import { Wrapper } from "./style";
-import { useAuthUser } from "react-auth-kit";
+import React from 'react';
+import { Modal } from 'antd';
+import { Wrapper } from './style';
 
 const ProfileModal = ({ open, onCancel }) => {
-  const auth = useAuthUser();
-  const { fullName } = auth();
   return (
     <Modal
       title="Profile"
@@ -19,7 +16,7 @@ const ProfileModal = ({ open, onCancel }) => {
         <Wrapper.Form>
           <Wrapper.InputWrapper>
             <Wrapper.InputText>Username:</Wrapper.InputText>
-            <Wrapper.Input disabled={true} value={fullName} />
+            <Wrapper.Input disabled={true} />
           </Wrapper.InputWrapper>
           <Wrapper.InputWrapper>
             <Wrapper.InputText>Password:</Wrapper.InputText>
